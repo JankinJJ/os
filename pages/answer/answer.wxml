@@ -1,0 +1,16 @@
+<view class='answer_submit'>
+  <view class='rich_text_submit'>
+    <form bindsubmit="bindFormSubmit">
+      <textarea placeholder="写下你的问题，点击提交" maxlength='0' name="textarea"/>
+      <button form-type="submit"> 提交 </button>
+    </form>
+  </view>
+  <view>
+    <view class='image_link' bindtap='insert_image'>
+      <image src='../../images/answer_link.png'></image>
+    </view>
+    <view class='text_link' >
+      <text style='color:#81d6dc'>插入照片</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+.header{
+  width: 100%;
+  height: auto;
+  background-color: #81d6dc;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerTitle1{
+    margin: 0px 40px;
+    margin-left:  40px;
+    margin-right: 40px;
+    margin-bottom: 3px;
+    padding: 2px;
+    border-bottom: white solid 4px;
+}
+
+.headerTitle2{
+    margin: 0px 40px;
+}
+
+.pre_title{
+  margin: 10px 5px;
+  border-left: solid #81d6dc 5px;
+  padding: 0 3px;
+}
+
+.radio_group_one{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.radio_group_title{
+  margin: 5px auto;
+  border-bottom: solid #81d6dc 2rpx;
+  padding: 5px ;
+}
+
+.video{
+  display: flex;
+  justify-content: center;
+}
+
+swiper{
+  width: auto;
+  height: 750rpx;
+}
+
+

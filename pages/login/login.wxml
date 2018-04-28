@@ -1,0 +1,27 @@
+<view class='container'>
+  <view class='bgpicture'>
+    <image src='../../images/login.png' mode='widthFix'></image>
+  </view>
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='username'>
+      <input name="num" placeholder="输入学号" auto-focus/>
+    </view>
+    <view class='password'>
+      <input name="pass" password='true' placeholder="输入密码" auto-focus/>
+    </view>
+    <view class='btnlogin'>
+      <button type='primary' formType="submit">登录</button>
+    </view>
+  </form>
+  <view class='txtregister'>
+    <view>
+      <text bindtap='btnregister'>注册一个新账号</text>
+    </view>
+    <view>
+      <text bindtap='btnforgetPassword'>忘记密码？</text>
+    </view>
+  </view>
+
+
+</view>

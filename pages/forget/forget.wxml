@@ -1,0 +1,24 @@
+<view>
+  <view class='phoneNum'>
+    <input placeholder="输入手机号" auto-focus/>
+  </view>
+  <view class='btnSent'>
+    <button type='primary' bindtap='btnSent'>发送验证码</button>
+  </view>
+  <view hidden='{{flag}}'>
+    <view class='phoneNum'>
+      <input placeholder="输入验证码" auto-focus/>
+    </view>
+    <view class='btnSent'>
+      <button type='primary' bindtap='btnCheck'>验证</button>
+    </view>
+  </view>
+  <view hidden='{{flag1}}'>
+    <view class='phoneNum'>
+      <input placeholder="输入新密码" auto-focus/>
+    </view>
+    <view class='btnSent'>
+      <button type='primary' bindtap='btnNewPassword'>确定</button>
+    </view>
+  </view>
+</view>

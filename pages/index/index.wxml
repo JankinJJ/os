@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='indexpicture'>
+    <image src='../../images/courselist.jpg' mode='widthFix' style=' width: 375px;'></image>
+  </view>
+
+  <view class='userInfo'>
+    
+    <text style='color:white'>{{username}}</text>
+  </view>
+
+  <view class='avaterposition'>
+    <image src='../../images/avater.png' class='avater'></image>
+  </view>
+
+  <view class='navigation'>
+    <view class='navigationTitle'>
+      <text style='color:white'>学习辅助</text>
+      <view class='search'>
+        <input placeholder="点击搜索" placeholder-style="color:white;" style='color:white;font-size:18px' auto-focus/>
+      </view>
+    </view>
+    <view class='navigationContentIcon'>
+      <image src='../../images/test.png' style='width:50px;height:50px' bindtap='Totest'></image>
+      <image src='../../images/question.png' style='width:60px;height:60px' bindtap='Toquestion'></image>
+      <image src='../../images/answer.png' style='width:50px;height:50px' bindtap='Toanswer'></image>
+      <image src='../../images/download.png' style='width:40px;height:40px' bindtap='Todownload'></image>
+    </view>
+    <view class='navigationContentItem'>
+      <text style='color:rgb(156,156,156);font-size:15px' bindtap='Totest'>随堂测验</text>
+      <text style='color:rgb(156,156,156);font-size:15px;margin-left:40px' bindtap='Toquestion'>课堂提问</text>
+      <text style='color:rgb(156,156,156);font-size:15px;margin-left:45px' bindtap='Toanswer'>课后答疑</text>
+      <text style='color:rgb(156,156,156);font-size:15px;margin-left:30px' bindtap='Todownload'>上传下载</text>
+    </view>
+  </view>
+
+  <view class='rootlist'>
+    <view class='roottxt'>
+      <image src='../../images/listicon.png' class='icon'></image>
+      <text style='color:white;font-size:20px'>操作系统</text>
+    </view>
+
+    <view class='roottxtUpdata'>
+      <text style='color:white;font-size:15px'>更新到{{content}}</text>
+    </view>
+  </view>
+
+  <view class="phone_one" bindtap="clickPerson">
+    <image src='../../images/point.png' style='width:15px;height:15px;margin:5px 5px'></image>
+    <view class="phone_personal">{{firstPerson}}</view>
+  </view>
+ 
+  <view class="person_box">
+    <view class="phone_select" hidden="{{selectPerson}}">
+      <view class="select_one" bindtap="mySelect" data-me="进程的概念和特征"><text style='color:rgb(129, 214, 220)'>进程的概念和特征</text></view>
+      <view class="select_one" bindtap="mySelect" data-me="进程的状态与转换"><text style='color:rgb(129, 214, 220)'>进程的状态与转换</text></view>
+      <view class="select_one" bindtap="mySelect" data-me="进程控制"><text style='color:rgb(129, 214, 220)'>进程控制</text></view>
+    </view>
+ </view>
+  
+
+</view>

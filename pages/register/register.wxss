@@ -1,0 +1,35 @@
+/* pages/register/register.wxss */
+input{
+  padding: 10px;
+  background-color: #fff;
+}
+
+.user-name{
+  margin: 0px 40px;
+}
+
+.password{
+  margin: 2px 40px;
+}
+
+.phonenumber{
+  margin: 0px 40px;
+}
+
+.studentID{
+  margin: 2px 40px;
+}
+
+.btnregister{
+  margin: 0px 40px;
+}
+
+.pickerProfess{
+  padding: 10px;
+  background-color: #fff;
+  margin: 2px 40px;
+}
+
+picker{
+  color:gray;
+}

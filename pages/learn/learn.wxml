@@ -1,0 +1,54 @@
+<view class='header'>
+  <view class='{{title_pre}}' bindtap='Topre'> 
+    <text style='color:white'>预习</text>
+  </view>
+
+  <view class='{{title_ing}}' bindtap='Toing'>
+    <text style='color:white'>学习</text>
+  </view>
+
+  <view class='{{title_re}}' bindtap='Toreview'>
+    <text style='color:white'>复习</text>
+  </view>
+
+</view>
+
+<view class='pre' hidden='{{flag_pre}}'>
+  <view class='pre_title' >
+    <text style='color:#81d6dc'>进程的概念和特性</text>
+  </view>
+
+  <swiper indicator-dots="{{indicatorDots}}" duration="{{duration}}">
+    <block wx:for="{{Question}}" wx:for-index="i" >
+      <swiper-item>
+        <!-- <image src="{{item}}" class="slide-image" width="355" height="150"/> -->
+        <view id='radio_group_one_title' class='radio_group_title'>
+          <!-- <text>{{test_num_data}}.{{title_one}}</text> -->
+           <text>{{imgUrls[i].title}}</text>
+        </view>
+        
+        <view>
+          <radio-group class="radio_group_one" bindchange="radioChange">
+            <label class="radio" wx:for="{{Selects}}" wx:for-index="j" >
+              <radio value="{{imgUrls[i].value[j].name}}" checked="{{item.checked}}"  disabled="{{radio}}" /><text id='radio_group_one'>{{imgUrls[i].value[j].a}}</text>
+            </label>
+          </radio-group>
+
+        </view> 
+      </swiper-item>
+     </block> 
+  </swiper>
+  
+
+
+</view>
+
+<view class='pre' hidden='{{flag_ing}}'>
+  <view class="video">
+  <video id="myVideo" src="https://vedio-1256376432.cos.ap-chengdu.myqcloud.com/%E6%89%8B%E6%9C%BAQQ%E8%A7%86%E9%A2%91_20150416201348.mp4" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+  </view>
+</view>
+
+<view class='pre' hidden='{{flag_re}}'>
+  这是复习部分
+</view>

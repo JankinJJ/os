@@ -1,0 +1,114 @@
+.indexpicture{
+  position: relative;
+}
+
+.avaterposition{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50px;
+}
+
+.userInfo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 140px;
+}
+
+.avater{
+  width: 80px;
+  height: 80px;
+}
+
+.rootlist{
+  width: 100%;
+  background-color: #81d6dc;
+  position: relative;
+}
+
+.roottxt{
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-self: baseline;
+}
+
+.icon{
+  height: 20px;
+  width: 25px;
+  padding: 5px;
+}
+
+.roottxtUpdata{
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
+.courselist{
+  margin: 10px;
+  border-bottom: solid #ddd 1px;
+}
+
+.phone_personal{
+    width: 100%;
+    color:rgb(129, 214, 220);
+}
+.phone_one{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width:90%;
+    margin:5px auto;
+    padding: 2px auto;
+    border-radius: 10rpx;
+    border-bottom:2rpx solid #ddd;
+}
+.person_box{
+    position: relative;
+}
+.phone_select{
+    margin-top:0;
+    z-index: 100;
+    position: absolute; 
+}
+.select_one{
+    text-align: left;
+    width:100%; 
+    margin:5px 40px;
+    border-bottom:2rpx solid #ddd;
+}
+
+.navigationTitle{
+  background-color: #81d6dc;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+.search{
+  width: 20%;
+  position: absolute;
+  right: 5px;
+  margin-right: 5px;
+  border: white solid #fff;
+}
+
+.navigationContentIcon{
+  margin:0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigationContentItem{
+  margin-left:  10px;
+  margin-bottom: 10px;
+}

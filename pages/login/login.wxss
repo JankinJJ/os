@@ -1,0 +1,31 @@
+
+.bgpicture{
+  display: flex;
+  justify-content: center;
+}
+
+.username{
+    margin: 0px 40px;
+}
+.password{
+    margin: 2px 40px;
+}
+
+input{
+  padding: 10px;
+  background-color: #fff;
+}
+
+.btnlogin{
+  margin: 10px 40px;
+}
+
+.txtregister{
+  color:rgb(26, 173, 25);
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+

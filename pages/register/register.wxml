@@ -1,0 +1,43 @@
+<view class='container'>
+
+<form bindsubmit="formregister">
+  <view class='user-name'>
+    <input name="user" placeholder="用户名" auto-focus/>
+  </view>
+  <view class='password'>
+    <input name="pass" placeholder="输入密码" auto-focus/>
+  </view>
+  <view class='phonenumber'>
+    <input name="phoneNum" placeholder="输入手机号" auto-focus/>
+  </view>
+  <view class='studentID'>
+    <input name="num" placeholder="输入学号" auto-focus/>
+  </view>
+  
+  <picker bindchange='bindPickerChange' range='{{array}}' >
+      <view class='pickerProfess'>
+        {{array[index]}}
+      </view>
+  </picker>
+
+  <picker name='nianji' bindchange='bindPickerChangeGrade' value='{{indexgrade}}' range='{{arraygrade}}'>
+      <view class='pickerProfess'>
+        {{arraygrade[indexgrade]}}
+      </view>
+  </picker>
+  
+  <picker name='classroom' bindchange='bindPickerChangeClass' value='{{indexclass}}' range='{{arrayclass}}'>
+      <view class='pickerProfess'>
+        {{arrayclass[indexclass]}}
+      </view>
+  </picker>
+
+  <view class='btnregister'>
+    <button type='primary' formType="submit">注册</button>
+  </view>
+
+</form>
+
+
+
+  </view>

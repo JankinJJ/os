@@ -1,0 +1,12 @@
+.phoneNum{
+  margin: 5px 40px;
+}
+
+input{
+  padding: 10px;
+  background-color: #fff;
+}
+
+.btnSent{
+  margin: 5px 40px;
+}

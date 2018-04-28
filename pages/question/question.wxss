@@ -1,0 +1,4 @@
+/* pages/question/question.wxss */
+.yu_test{
+  background-color: red;
+}

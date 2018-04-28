@@ -1,0 +1,37 @@
+.answer_submit{
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.rich_text_submit{
+  display: flex;
+  justify-content: center;
+}
+
+.image_link{
+  display: flex;
+  position: absolute;
+  top: 220px;
+  left: 30px;
+}
+
+.text_link{
+  display: flex;
+  position: absolute;
+  top: 226px;
+  left: 70px;
+}
+
+image{
+  width: 40px;
+  height:40px;
+}
+
+textarea{
+  margin: 50px auto;
+  border: solid 2px #81d6dc;
+  padding: 5px 5px;
+}

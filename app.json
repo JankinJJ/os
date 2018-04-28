@@ -1,0 +1,21 @@
+{
+  "pages":[
+    "pages/question/question",
+    "pages/login/login",
+    "pages/learn/learn",
+    "pages/test/test",
+    "pages/answer/answer",
+    "pages/index/index",
+    "pages/register/register",
+    
+    "pages/forget/forget",
+    "pages/download/download"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#eeeeee",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee",
+    "enablePullDownRefresh": false
+  }
+
+}
