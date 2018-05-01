@@ -35,3 +35,9 @@ textarea{
   border: solid 2px #81d6dc;
   padding: 5px 5px;
 }
+
+.perview_image{
+  margin: 15rpx auto;
+  width: 100%;
+  height: 375rpx;
+}

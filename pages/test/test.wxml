@@ -1,2 +1,14 @@
 <!--pages/test/test.wxml-->
-<text>pages/test/test.wxml</text>
+<view wx:for='{{question_num}}'  wx:for-index="i" >
+  <view>
+    <view><text>{{class_test[i].title}}</text></view>
+
+     <view bindtap='view1'id='{{i}}'>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{choose}}" wx:for-index="j">
+          <radio value="{{class_test[i].value[j].name}}" checked="{{item.checked}}"/>{{class_test[i].value[j].choose}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+</view>

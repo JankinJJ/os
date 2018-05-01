@@ -1,13 +1,27 @@
 <!--pages/question/question.wxml-->
-
 <text>{{timeText}}</text>  
-
-<button disabled="{{hey}}" bindtap='submit_test'>快点答别特么墨迹要到时间了</button>
-
 <view>
-  <text>林俊杰的歌曲中，被称为黑暗三部曲的除了下面那个选项（）</text>
-  <view hover-class="yu_test">A:黑暗骑士</view>
-  <view hover-class="yu_test">B:黑武士</view>
-  <view hover-class="yu_test">C:嘿！</view>
-  <view hover-class="yu_test">D:黑键</view>
+  <view class='radio_group_title'>
+    <text>{{wxml_test_num}}.{{query_content}}</text>
+  </view>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" wx:for="{{items}}">
+      <radio value="{{item.name}}" checked="{{item.checked}}" disabled='{{radio}}'/>{{item.value}}
+    </label>
+  </radio-group>
+</view>
+<button disabled="{{answer_bnt}}" bindtap='submit_test'>快点答别特么墨迹要到时间了</button>
+
+<view hidden='{{view_HID}}'>
+  <text>正确答案是：{{test_correct}}</text>
+  <button bindtap='check_queryAnswer'>查看具体答题情况</button>
+  <view hidden='{{check_queryAnswer}}'>
+    <view>答题正确率：{{count_cent}}%</view>
+    <view>A:({{count_cent_A}}%)</view><view class='choose_A' style='width:{{count_cent_A}}%'></view>
+    <view>B:({{count_cent_B}}%)</view><view class='choose_A' style='width:{{count_cent_B}}%'></view>
+    <view>C:({{count_cent_C}}%)</view><view class='choose_A' style='width:{{count_cent_C}}%'></view>
+    <view>D:({{count_cent_D}}%)</view><view class='choose_A' style='width:{{count_cent_D}}%'></view>
+  </view>
+ 
+  
 </view>

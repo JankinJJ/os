@@ -13,4 +13,5 @@
       <text style='color:#81d6dc'>插入照片</text>
     </view>
   </view>
+  <image src='{{choose_iamge}}' class='perview_image' mode='aspectFit'></image>
 </view>

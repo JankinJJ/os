@@ -1,1 +1,4 @@
-/* pages/test/test.wxss */
+.radio-group{
+  display: flex;
+  flex-direction: column;
+}

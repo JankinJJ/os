@@ -1,3 +1,4 @@
+var util = require('../../utils/util.js')
 // pages/learn/learn.js
 var myurl = 'http://127.0.0.1:8000/';
 var student_ID='';
@@ -6,6 +7,11 @@ var test_num='';
 var pre_grade = [];
 var count_all='';
 var pageid = -1;
+var correct_choose_back = [];//存放后端传来的习题正确答案
+var student_answer_array = [];//学生题目作答答案的数组
+var correct_count = 0;//学生答题正确的个数
+//var correct_answer_array=[];
+var username='';
 Page({
 
   /**
@@ -52,12 +58,15 @@ Page({
     answer_array:[],
     pageView_array:[],
 
-    count:''
-
-
-    
-
-    //radio:false
+    count:'',
+    //count_comment:'',
+    username:'',
+    time:'',
+    commentShow:[],
+    count_comment: 0,
+    //comment_date:
+    comment_list_number:[],
+    input_judge:false
   },
  //pre:预习部分习题
   slip_end : function(e){
@@ -85,10 +94,8 @@ Page({
 
     if(this.data.pageView_array.indexOf(e.detail.current)==-1)
     {
-      // console.info("pageid=",pageid);
-      // this.data.answer_array[pageid] = this.data.everyChoose;
-      console.log("当前页与页数组不相同")
-      console.log("this.data.everyChoose=" + this.data.everyChoose)
+      // console.log("当前页与页数组不相同")
+      // console.log("this.data.everyChoose=" + this.data.everyChoose)
        this.data.pageView_array.push(e.detail.current)
        this.data.answer_array.push(this.data.everyChoose);
       //  this.data.everyChoose = '';
@@ -113,6 +120,8 @@ Page({
     }
     console.log("显示答案数组")
     console.log(" this.data.answer_array=" + this.data.answer_array);
+    student_answer_array = this.data.answer_array
+    console.log(" student_answer_array=" + student_answer_array);
  
    
     // console.log(this.data.pageView_array)
@@ -134,51 +143,59 @@ Page({
     this.setData({
       everyChoose: e.detail.value
     })
+  },
 
+  //发表评论
+  comment_Submit:function(e){
+    console.log('评论内容：'+e.detail.value.textarea)
+    var content = e.detail.value.textarea
+    if (content=='')
+    {
+      this.setData({
+        input_judge:true
+      })
+    }else{
+    var time = util.formatTime(new Date());
+    // 再通过setData更改Page()里面的data，动态更新页面的数据  
+    this.setData({
+      time: time
+    });
 
     
-
-    // pre_grade.push(e.detail.value);
-
-    // console.log(pre_grade);
-
-    //this.setData({ radio:true})
-   
-
-  /*
-   if (e.detail.value=="B")
-    {
-      judge="ok"
-    }else{
-      judge="bad"
-    }
-
-   wx.getStorage({
-     key: 'key2',
-     success: function (res) {
-       console.log(res.data),
-         test_num = res.data
-
-     }
-   })
-
-
-    this.setData({ radio_group_one:true})
-    wx.request({ 
-      url: myurl + 'pre_answer/',
-      data: {
-        answer: e.detail.value,
-        student_num:student_ID,
-        test_num2: wx.getStorageSync('test_num'),
-        pre_answer: e.detail.value,
-        judge:judge,
-      },
+    wx.request({
+      url: myurl + 'learn_comment/',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      method: "get",
+      method: "post",
+      data:{
+        comment: e.detail.value.textarea,
+        date:time,
+        username:username
+      },
+      success:function(res){
+        console.log(res.data)
+        // that.setData({
+        //   count_comment:res.data
+        // })
+      }
+
     })
-    */
+    }
+
+  },
+
+  //判断对错并存入后端数据库
+  submit_pre_answer:function(){
+    for (var i = 0; i < correct_choose_back.length ;i++)
+    {
+      if (student_answer_array[i] == correct_choose_back[i])
+      {
+        correct_count++;
+      }
+    }
+    console.log('答对了'+correct_count+'道题');
+
   },
   
   Topre:function(){
@@ -222,7 +239,7 @@ Page({
     console.log(this.data.pageView_array);
     var that=this;
     wx.request({
-      url: myurl + 'exercises/',
+      url: myurl + 'pre_test/',
 
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -236,9 +253,9 @@ Page({
         // console.log(asd)
         var quest_count=res.data["count"]+1;
         console.log("quest_count" + quest_count);
-      
+    
         //var quest_count = paresInt(count_all)+1;
-        
+        //实现习题从后端动态增加显示
         var myImgurls = []
         var question=[];
         for (var i = 0; i < quest_count-1;i++)
@@ -246,7 +263,15 @@ Page({
           var OneQeust = { id: res.data["Quest_List"][i].id,title: res.data["Quest_List"][i].title,value: res.data["Quest_List"][i].value}
           myImgurls.push(OneQeust);
           question.push(',');
+        };
+        //实现从后端循环取出正确答案的值
+        for (var i = 0; i < quest_count - 1; i++) {
+          //var correct_choose = { correct: res.data["Corront_List"][i].correct};
+          //console.log(res.data["Corront_List"][i].correct);
+          correct_choose_back.push(res.data["Corront_List"][i].correct)
+          //question.push(',');
         }
+        //console.log('所有正确答案是：'+correct_choose_back)
         //最后一个
         // OneQeust = { id: 'haha', title: '恭喜你', value: [{ 'name': 'A', 'choose': 'dfj' }, { 'name': 'A', 'choose': 'dfj' }, { 'name': 'A', 'choose': 'dfj' }, { 'name': 'A', 'choose': 'dfj' }] }
         OneQeust={title:'恭喜你做完了题目'}
@@ -267,10 +292,48 @@ Page({
       fail: function (res) {
         console.log("失败了北鼻");
       }
-  
-
-    }),
+     }),
       student_ID = wx.getStorageSync('student_id')
+
+    wx.getStorage({
+      key: 'key',
+      success: function (res) {
+        console.log(res.data)
+        username = res.data
+      },
+    })
+    var that = this;
+    wx.request({
+      url: myurl + 'comment_back/',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "get",
+    
+      success: function (res) {
+        console.log(res.data["count"])
+        var commentNum = res.data["count"]
+        that.setData({count_comment:res.data["count"]})
+        var comment_back = []
+        var comment_number=[]
+        console.log(commentNum)
+        for (var i = 0; i < commentNum; i++) {
+          var Onecomment = { username: res.data["Comment_List"][i].username, comment: res.data["Comment_List"][i].comment, date: res.data["Comment_List"][i].date }
+          comment_back.push(Onecomment);
+          comment_number.push(',');
+        };
+
+        //console.log(comment_back)
+        that.setData({
+          //test_num_data : wx.getStorageSync('test_num'),
+          'commentShow': comment_back,
+          'comment_list_number':comment_number
+        })
+        console.log('这是真的吗'+that.data.commentShow)
+
+     }
+    })
+ 
   
   },
 
@@ -278,7 +341,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
+
   },
 
   /**

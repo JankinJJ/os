@@ -39,14 +39,32 @@
      </block> 
   </swiper>
   
-
+  <button bindtap='submit_pre_answer'>交卷</button>
 
 </view>
 
+
 <view class='pre' hidden='{{flag_ing}}'>
   <view class="video">
-  <video id="myVideo" src="https://vedio-1256376432.cos.ap-chengdu.myqcloud.com/%E6%89%8B%E6%9C%BAQQ%E8%A7%86%E9%A2%91_20150416201348.mp4" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+    <video id="myVideo" src="https://vedio-1256376432.cos.ap-chengdu.myqcloud.com/%E6%89%8B%E6%9C%BAQQ%E8%A7%86%E9%A2%91_20150416201348.mp4" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
   </view>
+  <view class='rich_text_submit'>
+    <form bindsubmit="comment_Submit">
+      <textarea placeholder="发表评论" maxlength='0' name="textarea" style='font-size:30rpx' disabled='{{input_judge}}'/>
+      <button form-type="submit" style='width:30%;margin:5px auto;font-size:30rpx'> 发表 </button>
+    </form>
+  </view>
+  <view class='learn_conmment_title'>
+    <text style='font-size:30rpx'>评论({{count_comment}})</text>
+  </view>
+  <view wx:for='{{comment_list_number}}' wx:for-index='i'>
+    <view class='username_comment'>{{commentShow[i].username}}</view> 
+    <view class='date_comment'>{{commentShow[i].date}}</view> 
+    <view class='comment_content'>{{commentShow[i].comment}}</view> 
+
+  
+  </view>
+  <text>{{time}}</text>
 </view>
 
 <view class='pre' hidden='{{flag_re}}'>

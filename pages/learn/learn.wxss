@@ -48,4 +48,34 @@ swiper{
   height: 750rpx;
 }
 
+.learn_conmment_title{
+  margin: 15rpx 30rpx;
+  border-bottom: 2rpx #81d6dc solid
+}
 
+textarea{
+  margin: 5px auto;
+  border: solid 2px #81d6dc;
+  padding: 5px 5px;
+  height: 80rpx;
+}
+
+.username_comment{
+  font-size:30rpx;
+  margin: 15rpx 30rpx;
+  color: #696969
+}
+
+.date_comment{
+  font-size:25rpx;
+  margin: auto 30rpx;
+  color: #696969;
+}
+
+.comment_content{
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size:30rpx;
+  border-bottom: 1rpx #e1e5ea solid
+}

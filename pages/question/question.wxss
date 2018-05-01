@@ -1,4 +1,17 @@
-/* pages/question/question.wxss */
-.yu_test{
+.radio-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.radio_group_title{
+  margin: 5px auto;
+  border-bottom: solid #81d6dc 2rpx;
+  padding: 5px ;
+}
+
+.choose_A{
   background-color: red;
+  height: 20px;
+  margin:15rpx 20rpx
+  
 }
